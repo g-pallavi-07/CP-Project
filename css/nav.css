@@ -1,0 +1,15 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    background-color:#588157 ;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    font-family: 'Manrope', sans-serif;
+}
+.sidebar a{
+    text-decoration: none;
+    color:#a3b18a ;
+}
