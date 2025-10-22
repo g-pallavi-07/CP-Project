@@ -6,9 +6,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oi&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+
     <title>Document</title>
 </head>
 <body>
@@ -40,7 +41,7 @@
                 <div class="calendar">
                     <a href="calendar.html">
                         <div class="calendar-icon">
-                            <img src="assets/calendar-icon.png" alt="calendar-icon">
+                            <img src="{{ url_for('static', filename='assets/calendar-icon.png') }}" alt="calendar-icon">
                         </div>
                         <div class="calendar-text">
                             <a href="calendar.html">Calendar</a>
@@ -52,7 +53,7 @@
                 <div class="todo">
                     <a href="todo.html">
                         <div class="todo-icon">
-                            <img src="assets/todo-icon.png" alt="todo-icon">
+                            <img src="{{ url_for('static', filename='assets/todo-icon.png') }}" alt="todo-icon">
                         </div>
                         <div class="todo-text">
                             <a href="todo.html">To-Do</a>
@@ -64,7 +65,7 @@
                 <div class="habit">
                     <a href="habit.html">
                         <div class="habit-icon">
-                            <img src="assets/checklist-icon.png" alt="checklist-icon">
+                            <img src="{{ url_for('static', filename='assets/checklist-icon.png') }}" alt="checklist-icon">
                         </div>
                         <div class="habit-text">
                             <a href="habit.html">Habit Tracker</a>
@@ -76,7 +77,7 @@
                 <div class="pomodoro">
                     <a href="pomodoro.html">
                         <div class="pomodoro-icon">
-                            <img src="assets/timer-icon.png" alt="timer-icon">
+                            <img src="{{ url_for('static', filename='assets/timer-icon.png') }}" alt="timer-icon">
                         </div>
                         <div class="pomodoro-text">
                             <a href="pomodoro.html">Pomodoro</a>
