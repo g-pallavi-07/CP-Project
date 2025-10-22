@@ -6,10 +6,43 @@
     top: 0;
     bottom: 0;
     left: 0;
-    width: 200px;
-    font-family: 'Manrope', sans-serif;
+    width: 250px;
+    font-family: 'Sour Gummy', sans-serif;
+    font-size: 1em;
 }
 .sidebar a{
     text-decoration: none;
-    color:#a3b18a ;
+    color:#ccdeae ;
+}
+.user-profile-sidebar{
+    padding:17px;
+    background-color:#344e41 ;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    font-size: 1em;
+    justify-content: left;
+}
+.user-icon{
+    padding-right:10px;
+}
+.calendar,.todo,.habit,.pomodoro{
+    padding: 20px;
+    border-bottom: solid 1px #a3b18a ;
+}
+.calendar,.todo,.habit,.pomodoro{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+}
+.username-text, .calendar-text, .todo-text, .habit-text, .pomodoro-text {
+    padding-left: 10px;
+}
+.username-text a,
+.calendar-text a,
+.todo-text a,
+.habit-text a,
+.pomodoro-text a {
+    font-family: 'Sour Gummy', sans-serif;
+    font-size: 1.2em;
 }
