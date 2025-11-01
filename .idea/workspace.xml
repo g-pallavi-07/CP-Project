@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a62f279a-95cd-43de-99b6-217775817dfd" name="Changes" comment="" />
+    <list default="true" id="a62f279a-95cd-43de-99b6-217775817dfd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,8 +21,25 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;avniss25&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/g-pallavi-07/CP-Project.git&quot;,
+    &quot;accountId&quot;: &quot;1b0be177-3c78-4472-9178-5fd0ca30a2ac&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -30,14 +50,24 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JavaScript Debug.calendar.html.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python._main_.executor": "Run",
     "Python.server.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "avni",
-    "last_opened_file_path": "C:/Users/Dell/OneDrive/Documents/GitHub/CP-Project/Backend/templates",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/Admin/Downloads/CP-Project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -49,6 +79,11 @@
       <recent name="C:\Users\Dell\OneDrive\Documents\GitHub\CP-Project\Backend\static" />
       <recent name="C:\Users\Dell\OneDrive\Documents\GitHub\CP-Project\Backend\templates" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="calendar.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/CP-Project/Backend/templates/calendar.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -64,7 +99,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1761123165557</updated>
+      <workItem from="1761282960081" duration="1567000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
