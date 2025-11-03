@@ -1,0 +1,154 @@
+main.habit-tracker {
+  margin-top: 5px;   /* slightly below the header */
+  margin-left: 80px; /* clear of sidebar */
+  padding: 20px;
+  width: calc(100% - 100px);
+  position: static;    /* prevents “jumping up” due to relative positioning */
+  box-sizing: border-box;
+}
+
+
+.habit-tracker {
+  padding: 2rem;
+  background-color: #f5f8f3;
+  color: #333;
+  font-family: "Manrope", sans-serif;
+}
+
+.habit-tracker h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #2f4f2f;
+}
+
+/* Add habit form */
+.add-habit {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.add-habit input {
+  width: 60%;
+  padding: 0.7rem;
+  border: 2px solid #a4c79b;
+  border-radius: 10px;
+  outline: none;
+}
+
+.add-habit button {
+  background-color: #a4c79b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-habit button:hover {
+  background-color: #8fb386;
+}
+
+/* Habit cards */
+.habit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.habit-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 1.2rem 1.5rem;
+  width: 80%;
+  max-width: 600px;
+  transition: transform 0.2s ease;
+}
+
+.habit-card:hover {
+  transform: translateY(-4px);
+}
+
+.habit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.habit-header h3 {
+  font-size: 1.2rem;
+  color: #2f4f2f;
+}
+
+.streak {
+  background-color: #ffe8b3;
+  color: #b37b00;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* Checkboxes for days */
+.habit-days {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.habit-days label {
+  background-color: #ecf5ea;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.habit-days input[type="checkbox"] {
+  accent-color: #a4c79b;
+  margin-right: 5px;
+}
+
+.habit-days label:hover {
+  background-color: #d9ebd6;
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background-color: #4CAF50;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  margin-left: 8px;
+}
+
+.delete-btn:hover {
+  color: red;
+  transform: scale(1.3);
+}
