@@ -1,0 +1,12 @@
+.analytics{
+    background-color: #a3b18a;
+    padding: 20px;
+    border: solid 2px #344e41;
+    display: grid;
+    grid-template-rows: 1fr;
+    color: #404637;
+}
+.inner-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
