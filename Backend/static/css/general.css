@@ -1,8 +1,93 @@
-*{
-    margin: 0;
-    padding: 0;
+/* ---------------- TO-DO PAGE STYLING ---------------- */
+
+.main-todo {
+    margin-left: 220px;
+    padding: 40px;
+    font-family: 'Manrope', sans-serif;
+    background-color: #fefefe;
+    min-height: 100vh;
+    color: #333;
 }
-body{
-    background-color: #f6ffe7;
-    padding: 300px;
+
+.main-todo h1 {
+    font-weight: 700;
+    font-size: 28px;
+    color: #a5b68d;
+    margin-bottom: 30px;
+}
+
+/* Add task form */
+.todo-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.todo-form input,
+.todo-form select {
+    padding: 10px;
+    border: 1px solid #ccd0c7;
+    border-radius: 8px;
+    font-size: 15px;
+    flex: 1 1 180px;
+}
+
+.todo-form button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #a5b68d;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
+}
+
+.todo-form button:hover {
+    background-color: #8ca174;
+}
+
+/* Review button */
+.review-btn {
+    background-color: #d2e0a3;
+    color: #333;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.review-btn:hover {
+    background-color: #b4cb87;
+}
+
+/* Table styling */
+#taskTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+#taskTable th, #taskTable td {
+    border-bottom: 1px solid #eaeaea;
+    padding: 12px 16px;
+    text-align: left;
+}
+
+#taskTable th {
+    background-color: #f6f8f2;
+    color: #606c38;
+    font-weight: 700;
+}
+
+#taskTable tr:hover {
+    background-color: #f9faf6;
 }

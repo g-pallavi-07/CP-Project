@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from csv_file_writer import *
 import datetime
 
@@ -15,19 +15,51 @@ def calendar():
 
 @app.route("/todo.html", methods=["GET", "POST"])
 def todo():
+    from csv_file_writer import add_data, read_data
+
     if request.method == "POST":
         task_id = request.form.get("task_id")
         task = request.form.get("task")
         status = request.form.get("status")
         priority = request.form.get("priority")
         due_date = request.form.get("due_date")
+
         if task_id:
-            record = {"task_id": task_id, "task": task, "status": status, "priority": priority,
-                      "due_date": due_date}
+            record = {
+                "task_id": task_id,
+                "task": task,
+                "status": status,
+                "priority": priority,
+                "due_date": due_date
+            }
             add_data(record)
-            print(read_data())
+
+        # redirect to GET view to show updated list
         return redirect(url_for("todo"))
-    return render_template(template_name_or_list="todo.html")
+
+    # when GET request → show all tasks
+    tasks = read_data()
+    return render_template("todo.html", tasks=tasks)
+
+
+@app.route("/reviewmypriority", methods=["POST"])
+def review_my_priority():
+    import csv
+    from due_date_comparison import compare_due_date
+
+    # Step 1: Run comparison to update priorities
+    compare_due_date()
+
+    # Step 2: Read updated CSV data
+    updated_records = []
+    with open('todo_task_data.csv', 'r', newline='') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            updated_records.append(row)
+
+    # Step 3: Return the updated tasks as JSON
+    return jsonify(updated_records)
+
 
 @app.route("/habit.html")
 def habit():

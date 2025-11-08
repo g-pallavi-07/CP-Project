@@ -9,19 +9,19 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
-
-    <title>Document</title>
+    <title>To-Do List</title>
 </head>
 <body>
     <header class="header">
         <div class="quote">
             <p class="quote">✨“Believe you can and you're halfway there.”✨</p>
         </div>
-        <div class = "user-profile">
+        <div class="user-profile">
             <button>User Profile</button>
         </div>
-        <div class = "settings"><button>Settings</button></div>
+        <div class="settings"><button>Settings</button></div>
     </header>
+
     <nav class="sidebar">
         <ul>
             <li>
@@ -49,8 +49,9 @@
                     </a>
                 </div>
             </li>
+
             <li>
-                <div class="todo">
+                <div class="todo active">
                     <a href="todo.html">
                         <div class="todo-icon">
                             <img src="{{ url_for('static', filename='assets/todo-icon.png') }}" alt="todo-icon">
@@ -61,6 +62,7 @@
                     </a>
                 </div>
             </li>
+
             <li>
                 <div class="habit">
                     <a href="habit.html">
@@ -73,6 +75,7 @@
                     </a>
                 </div>
             </li>
+
             <li>
                 <div class="pomodoro">
                     <a href="pomodoro.html">
@@ -87,9 +90,83 @@
             </li>
         </ul>
     </nav>
-    
-    <main>
-        <h1>Welcome to the To-Do Page</h1>
+
+    <main class="main-todo">
+        <h1>📋 Your To-Do List</h1>
+
+        <form method="POST" action="/todo.html" class="todo-form">
+            <input type="text" name="task_id" placeholder="Task ID" required>
+            <input type="text" name="task" placeholder="Task description" required>
+
+            <select name="status" required>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+
+            <select name="priority" required>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                <option value="Urgent">Urgent</option>
+            </select>
+
+            <input type="date" name="due_date" required>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <button id="reviewPriorityBtn" class="review-btn">🔄 Review My Priority</button>
+
+        <table id="taskTable">
+            <thead>
+                <tr>
+                    <th>Task ID</th>
+                    <th>Task</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for t in tasks %}
+                <tr>
+                    <td>{{ t.task_id }}</td>
+                    <td>{{ t.task }}</td>
+                    <td>{{ t.status }}</td>
+                    <td>{{ t.priority }}</td>
+                    <td>{{ t.due_date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </main>
+
+    <script>
+    async function loadTasks() {
+        const res = await fetch("/reviewmypriority", { method: "POST" });
+        if (!res.ok) {
+            alert("❌ Server error while reviewing priority");
+            return;
+        }
+        const data = await res.json();
+        const tbody = document.querySelector("#taskTable tbody");
+        tbody.innerHTML = "";
+        data.forEach(task => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${task.task_id}</td>
+                <td>${task.task}</td>
+                <td>${task.status}</td>
+                <td>${task.priority}</td>
+                <td>${task.due_date}</td>
+            `;
+            tbody.appendChild(row);
+        });
+        alert("✅ Priorities reviewed and updated!");
+    }
+
+    document.getElementById("reviewPriorityBtn").addEventListener("click", loadTasks);
+</script>
+
 </body>
 </html>
