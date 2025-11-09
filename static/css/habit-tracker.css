@@ -1,0 +1,145 @@
+/* ✅ Correct Positioning of Habit Tracker Under Header & Beside Sidebar */
+main.habit-tracker {
+    margin-top: 120px;       /* below header */
+    margin-left: 260px;      /* beside sidebar */
+    width: calc(100% - 260px);
+    padding: 20px;
+    box-sizing: border-box;
+    display: block;
+}
+
+/* ✅ Inner layout */
+.habit-tracker {
+    background-color: #f5f8f3;
+    font-family: "Manrope", sans-serif;
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.habit-tracker h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2f4f2f;
+}
+
+/* ✅ Add Habit Form */
+.add-habit {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.add-habit input {
+    width: 60%;
+    padding: 0.7rem;
+    border: 2px solid #a4c79b;
+    border-radius: 10px;
+}
+
+.add-habit button {
+    background-color: #a4c79b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 0.7rem 1.2rem;
+    cursor: pointer;
+}
+
+.add-habit button:hover {
+    background-color: #8fb386;
+}
+
+/* ✅ Habit List (keeps new cards centered) */
+.habit-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 1.5rem;
+}
+
+/* ✅ Habit Card (same design as original) */
+.habit-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    padding: 1.2rem 1.5rem;
+    width: 80%;
+    max-width: 600px;
+    transition: 0.2s;
+}
+
+.habit-card:hover {
+    transform: translateY(-4px);
+}
+
+.habit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.habit-header h3 {
+    font-size: 1.2rem;
+    color: #2f4f2f;
+}
+
+/* ✅ Streak Badge */
+.streak {
+    background: #ffe8b3;
+    padding: 4px 10px;
+    border-radius: 8px;
+    color: #b37b00;
+}
+
+/* ✅ Days Checkboxes */
+.habit-days {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 1rem 0;
+}
+
+.habit-days label {
+    background-color: #ecf5ea;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.habit-days input[type="checkbox"] {
+    accent-color: #a4c79b;
+    margin-right: 5px;
+}
+
+/* ✅ Progress Bar */
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: #4CAF50;
+    transition: width 0.3s ease;
+}
+
+/* ✅ Delete Button */
+.delete-btn {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.delete-btn:hover {
+    transform: scale(1.2);
+}
+
+
