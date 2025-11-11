@@ -45,4 +45,14 @@
 .pomodoro-text a {
     font-family: 'Sour Gummy', sans-serif;
     font-size: 1.2em;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+.username-text a:hover,
+.calendar-text a:hover,
+.todo-text a:hover,
+.habit-text a:hover,
+.pomodoro-text a:hover {
+    text-decoration: underline;
+    text-underline-offset: 6px;
 }

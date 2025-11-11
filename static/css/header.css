@@ -21,7 +21,7 @@
 .user-profile{
     margin-right:5px;
 }
-.user-profile button , .settings button{
+.user-profile button , .logout button{
     align-items: center;
     font-weight: 500;
     background-color: #3a5a40;
