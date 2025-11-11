@@ -1,0 +1,123 @@
+body {
+  background-color: #f0f3e8;
+  font-family: 'Roboto', sans-serif;
+  color: #3a5a40;
+}
+
+.pomodoro-main {
+  margin-left: 250px; /* keep sidebar alignment */
+  padding-top: 20px;  /* reduce top padding */
+  display: flex;
+  justify-content: flex-start; /* move timer upward */
+  align-items: center;
+  min-height: 100vh;
+}
+
+.pomodoro-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 0;
+}
+
+
+
+.pomodoro-title {
+  font-family: 'Oi', 'Roboto', serif;
+  font-size: 1.8rem;
+  color: #3a5a40;
+  font-weight: 400; /* makes it lighter */
+  letter-spacing: 1px; /* gives it breathing space */
+  margin-bottom: 20px;
+  text-shadow: 0 1px 2px rgba(58, 90, 64, 0.15); /* subtle depth without harshness */
+}
+
+
+.settings-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.settings-bar label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.settings-bar input {
+  width: 60px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid #a3b18a;
+  background-color: #f5f7f0;
+  color: #3a5a40;
+  font-weight: 500;
+}
+
+.settings-bar button {
+  background-color: #a3b18a;
+  border: none;
+  border-radius: 20px;
+  color: #3a5a40;
+  font-weight: 600;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.settings-bar button:hover {
+  background-color: #8fa67e;
+}
+
+.timer-display {
+  margin: 25px 0;
+}
+
+#timer {
+  font-size: 4rem;
+  font-weight: 600;
+  color: #3a5a40;
+}
+
+#sessionType {
+  font-size: 1rem;
+  color: #4f684c;
+  margin-top: 10px;
+}
+
+.control-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.control-buttons button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  color: white;
+}
+
+.start-btn {
+  background-color: #588157;
+}
+
+.pause-btn {
+  background-color: #a98467;
+}
+
+.reset-btn {
+  background-color: #bc4749;
+}
+
+.control-buttons button:hover {
+  opacity: 0.85;
+}
