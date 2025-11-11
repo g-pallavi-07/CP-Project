@@ -1,93 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oi&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oi&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/calendar.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <title>Calendar</title>
+  </head>
+  <body>
     <header class="header">
-        <div class="quote">
-            <p class="quote">✨“Believe you can and you're halfway there.”✨</p>
-        </div>
-        <div class = "user-profile">
-            <button>User Profile</button>
-        </div>
-        <div class = "settings"><button>Settings</button></div>
+      <div class="quote">
+        <p class="quote">✨“Believe you can and you're halfway there.”✨</p>
+      </div>
+      <div class="user-profile">
+        <button>User Profile</button>
+      </div>
+      <div class="settings"><button>Settings</button></div>
     </header>
-    <nav class="sidebar">
-        <ul>
-            <li>
-                <div class="user-profile-sidebar">
-                    <a href="index.html">
-                        <div class="user-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#ccdeae"><path d="M226-262q59-39.67 121-60.83Q409-344 480-344t133.33 21.17q62.34 21.16 121.34 60.83 41-49.67 59.83-103.67T813.33-480q0-141-96.16-237.17Q621-813.33 480-813.33t-237.17 96.16Q146.67-621 146.67-480q0 60.33 19.16 114.33Q185-311.67 226-262Zm253.88-184.67q-58.21 0-98.05-39.95Q342-526.58 342-584.79t39.96-98.04q39.95-39.84 98.16-39.84 58.21 0 98.05 39.96Q618-642.75 618-584.54t-39.96 98.04q-39.95 39.83-98.16 39.83ZM479.73-80q-83.1 0-156.18-31.5-73.09-31.5-127.15-85.83-54.07-54.34-85.23-127.23Q80-397.45 80-480.33q0-82.88 31.5-155.78Q143-709 197.33-763q54.34-54 127.23-85.5T480.33-880q82.88 0 155.78 31.5Q709-817 763-763t85.5 127Q880-563 880-480.18q0 82.83-31.5 155.67Q817-251.67 763-197.33 709-143 635.91-111.5 562.83-80 479.73-80Z"/></svg>
-                        </div>
-                        <div class="username-text">
-                            <a href="index.html">Username</a>
-                        </div>
-                    </a>
-                </div>
-            </li>
 
-            <li>
-                <div class="calendar">
-                    <a href="calendar.html">
-                        <div class="calendar-icon">
-                            <img src="assets/calendar-icon.png" alt="calendar-icon">
-                        </div>
-                        <div class="calendar-text">
-                            <a href="calendar.html">Calendar</a>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <div class="todo">
-                    <a href="todo.html">
-                        <div class="todo-icon">
-                            <img src="assets/todo-icon.png" alt="todo-icon">
-                        </div>
-                        <div class="todo-text">
-                            <a href="todo.html">To-Do</a>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <div class="habit">
-                    <a href="habit.html">
-                        <div class="habit-icon">
-                            <img src="assets/checklist-icon.png" alt="checklist-icon">
-                        </div>
-                        <div class="habit-text">
-                            <a href="habit.html">Habit Tracker</a>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <div class="pomodoro">
-                    <a href="pomodoro.html">
-                        <div class="pomodoro-icon">
-                            <img src="assets/timer-icon.png" alt="timer-icon">
-                        </div>
-                        <div class="pomodoro-text">
-                            <a href="pomodoro.html">Pomodoro</a>
-                        </div>
-                    </a>
-                </div>
-            </li>
-        </ul>
+    <nav class="sidebar">
+      <ul>
+        <li>
+          <div class="user-profile-sidebar">
+            <a href="index.html">
+              <div class="user-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="40px"
+                  viewBox="0 -960 960 960"
+                  width="40px"
+                  fill="#ccdeae"
+                >
+                  <path
+                    d="M226-262q59-39.67 121-60.83Q409-344 480-344t133.33 21.17q62.34 21.16 121.34 60.83 41-49.67 59.83-103.67T813.33-480q0-141-96.16-237.17Q621-813.33 480-813.33t-237.17 96.16Q146.67-621 146.67-480q0 60.33 19.16 114.33Q185-311.67 226-262Zm253.88-184.67q-58.21 0-98.05-39.95Q342-526.58 342-584.79t39.96-98.04q39.95-39.84 98.16-39.84 58.21 0 98.05 39.96Q618-642.75 618-584.54t-39.96 98.04q-39.95 39.83-98.16 39.83ZM479.73-80q-83.1 0-156.18-31.5-73.09-31.5-127.15-85.83-54.07-54.34-85.23-127.23Q80-397.45 80-480.33q0-82.88 31.5-155.78Q143-709 197.33-763q54.34-54 127.23-85.5T480.33-880q82.88 0 155.78 31.5Q709-817 763-763t85.5 127Q880-563 880-480.18q0 82.83-31.5 155.67Q817-251.67 763-197.33 709-143 635.91-111.5 562.83-80 479.73-80Z"
+                  />
+                </svg>
+              </div>
+              <div class="username-text">
+                <a href="index.html">Username</a>
+              </div>
+            </a>
+          </div>
+        </li>
+
+        <li>
+          <div class="calendar">
+            <a href="calendar.html">
+              <div class="calendar-icon">
+                <img src="assets/calendar-icon.png" alt="calendar-icon" />
+              </div>
+              <div class="calendar-text">
+                <a href="calendar.html">Calendar</a>
+              </div>
+            </a>
+          </div>
+        </li>
+
+        <li>
+          <div class="todo">
+            <a href="todo.html">
+              <div class="todo-icon">
+                <img src="assets/todo-icon.png" alt="todo-icon" />
+              </div>
+              <div class="todo-text">
+                <a href="todo.html">To-Do</a>
+              </div>
+            </a>
+          </div>
+        </li>
+
+        <li>
+          <div class="habit">
+            <a href="habit.html">
+              <div class="habit-icon">
+                <img src="assets/checklist-icon.png" alt="checklist-icon" />
+              </div>
+              <div class="habit-text">
+                <a href="habit.html">Habit Tracker</a>
+              </div>
+            </a>
+          </div>
+        </li>
+
+        <li>
+          <div class="pomodoro">
+            <a href="pomodoro.html">
+              <div class="pomodoro-icon">
+                <img src="assets/timer-icon.png" alt="timer-icon" />
+              </div>
+              <div class="pomodoro-text">
+                <a href="pomodoro.html">Pomodoro</a>
+              </div>
+            </a>
+          </div>
+        </li>
+      </ul>
     </nav>
+
     <main>
-        <h1>Welcome to the Calendar</h1>
+      <div class="calendar-wrapper">
+        <div class="calendar-box">
+          <div class="calendar-header">
+            <span class="left-arrow" id="prev">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+                <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/>
+              </svg>
+            </span>
+            <span class="month-heading" id="month-year">NOVEMBER 2025</span>
+            <span class="right-arrow" id="next">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+                <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/>
+              </svg>
+            </span>
+          </div>
+
+          <div class="calendar-body">
+            <!-- Weekday labels -->
+            <div class="days-header">
+              <div class="day">Sun</div>
+              <div class="day">Mon</div>
+              <div class="day">Tue</div>
+              <div class="day">Wed</div>
+              <div class="day">Thu</div>
+              <div class="day">Fri</div>
+              <div class="day">Sat</div>
+            </div>
+
+            <!-- Dates will be inserted by JS -->
+            <div class="days" id="dates"></div>
+          </div>
+        </div>
+      </div>
     </main>
-</body>
+
+    <script src="js/calendar.js" defer></script>
+  </body>
 </html>

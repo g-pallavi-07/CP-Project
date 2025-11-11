@@ -1,0 +1,195 @@
+/* --- Base layout --- */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+main {
+  margin-left: 200px; /* adjust if sidebar width differs */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Calendar wrapper --- */
+.calendar-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(237, 196, 202);
+  padding-top: 60px;
+  padding-left: 50px;
+}
+
+/* --- Calendar box --- */
+.calendar-box {
+  background-color: #ffffff;
+  border: solid 2px #838383;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 900px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: auto;
+}
+
+/* --- Header (Month + Arrows) --- */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e57373;
+  color: #ffffff;
+  padding: 20px;
+  font-size: 1.6em;
+  font-family: 'Sour Gummy', sans-serif;
+}
+
+.left-arrow, .right-arrow {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.left-arrow:hover, .right-arrow:hover {
+  transform: scale(1.2);
+}
+
+/* --- Calendar body --- */
+.calendar-body {
+  flex: 1;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+/* --- Weekday header (Mon, Tue, etc.) --- */
+.days-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #444;
+  font-family: 'Sour Gummy', sans-serif;
+}
+
+/* --- Dates grid --- */
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  text-align: center;
+  align-items: start;
+}
+
+/* --- Individual date cells --- */
+.date {
+  font-family: 'Sour Gummy', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 56px;
+  box-sizing: border-box;
+}
+
+.date:hover {
+  transform: translateY(-3px);
+  background-color: #f8b4b4;
+}
+
+.date.today {
+  background-color: #e57373;
+  color: white;
+  font-weight: bold;
+}
+
+.date.inactive {
+  color: #bfbfbf;
+  opacity: 0.85;
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 600px) {
+  .calendar-box {
+    width: 95%;
+    height: 75vh;
+  }
+
+  .calendar-header {
+    font-size: 1.3em;
+    padding: 15px;
+  }
+
+  .days-header {
+    font-size: 1rem;
+    gap: 8px;
+  }
+
+  .date {
+    min-height: 48px;
+    font-size: 0.9rem;
+  }
+}
+/* --- Popup --- */
+.popup {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+}
+
+.popup-content input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+}
+
+.popup-content button {
+  margin: 5px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #e57373;
+  color: white;
+  cursor: pointer;
+}
+
+.popup-content button:hover {
+  background-color: #f28b82;
+}
+
+/* --- Event tag --- */
+.event-tag {
+  background-color: #e57373;
+  color: white;
+  font-size: 0.7rem;
+  border-radius: 8px;
+  margin-top: 4px;
+  padding: 2px 4px;
+}
+
