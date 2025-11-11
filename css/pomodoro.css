@@ -3,14 +3,13 @@ body {
   font-family: 'Roboto', sans-serif;
   color: #3a5a40;
 }
-
 .pomodoro-main {
   margin-left: 250px; /* keep sidebar alignment */
   padding-top: 20px;  /* reduce top padding */
   display: flex;
   justify-content: flex-start; /* move timer upward */
   align-items: center;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 .pomodoro-container {
@@ -18,10 +17,8 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 0;
+  margin:auto;
 }
-
-
 
 .pomodoro-title {
   font-family: 'Oi', 'Roboto', serif;
