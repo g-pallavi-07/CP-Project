@@ -11,6 +11,23 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
     <title>Login | Productivity App</title>
     <style>
+        body {
+            margin: 0;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        /* ✅ Full-width green topbar */
+        header {
+            width: 100%;
+            background-color: #ccdeae;
+            padding: 25px 0;
+            text-align: center;
+            color: #2e4223;
+            font-weight: 600;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+        }
+
         main {
             display: flex;
             justify-content: center;
@@ -67,10 +84,8 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="quote">
-            <p class="quote">✨“Believe you can and you're halfway there.”✨</p>
-        </div>
+    <header>
+        ✨ “Believe you can and you're halfway there.” ✨
     </header>
 
     <main>

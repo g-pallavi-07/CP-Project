@@ -195,11 +195,11 @@ def review_my_priority():
     username = session["username"]
     user_file = get_user_todo_file(username)
 
-    # Example: run due date comparison (user-specific)
+    # Call updated comparison logic
     from due_date_comparison import compare_due_date
-    compare_due_date(user_file)
+    updated_records = compare_due_date(user_file)
 
-    updated_records = read_todo_data(username)
+    # Return updated data to frontend
     return jsonify(updated_records)
 
 

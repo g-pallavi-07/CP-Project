@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="a62f279a-95cd-43de-99b6-217775817dfd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/todo_task_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/todo_task_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/calendar_usecase.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/due_date_comparison.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/due_date_comparison.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/static/css/general.css" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/static/css/general.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/templates/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_todos/todo_task_data_avni2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_todos/todo_task_data_prajwal.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +68,7 @@
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;avni&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Downloads/CP-Project&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/AWORK/Avni/Coding/projects&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -78,6 +85,7 @@
       <recent name="C:\Users\Dell\OneDrive\Documents\GitHub\CP-Project\Backend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\AWORK\Avni\Coding\projects\Backend" />
       <recent name="C:\Users\Dell\OneDrive\Documents\GitHub\CP-Project\Backend\static" />
       <recent name="C:\Users\Dell\OneDrive\Documents\GitHub\CP-Project\Backend\templates" />
     </key>

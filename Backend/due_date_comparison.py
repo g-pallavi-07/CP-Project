@@ -1,22 +1,40 @@
 import datetime
-from csv_file_writer import read_data, update_data
+import csv
 
-def compare_due_date():
+def compare_due_date(user_file):
+    """Compare due dates and update priority for each record in the user's CSV."""
     today = datetime.datetime.today()
-    records = read_data()  # read fresh data each time
+    updated_records = []
 
-    for record in records:
-        due_date = record['due_date']
-        due_date = datetime.datetime.strptime(due_date, "%Y-%m-%d")  # date format from HTML <input type="date">
-        days_left = (due_date - today).days
+    # Read the existing records
+    with open(user_file, 'r', newline='') as f:
+        reader = csv.DictReader(f)
+        for record in reader:
+            if not record.get('due_date'):
+                continue  # skip if no due_date
 
-        if days_left <= 1:
-            record['priority'] = 'Urgent'
-        elif days_left <= 2:
-            record['priority'] = 'High'
-        elif days_left <= 7:
-            record['priority'] = 'Medium'
-        else:
-            record['priority'] = 'Low'
+            try:
+                due_date = datetime.datetime.strptime(record['due_date'], "%Y-%m-%d")
+                days_left = (due_date - today).days
+            except ValueError:
+                continue  # skip invalid dates
 
-        update_data(record['task_id'], record)
+            # Assign new priority based on remaining days
+            if days_left <= 1:
+                record['priority'] = 'Urgent'
+            elif days_left <= 2:
+                record['priority'] = 'High'
+            elif days_left <= 7:
+                record['priority'] = 'Medium'
+            else:
+                record['priority'] = 'Low'
+
+            updated_records.append(record)
+
+    # Write the updated records back to the same file
+    with open(user_file, 'w', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=["task_id", "task", "status", "priority", "due_date"])
+        writer.writeheader()
+        writer.writerows(updated_records)
+
+    return updated_records
