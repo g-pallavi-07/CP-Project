@@ -6,21 +6,22 @@ def compare_due_date(user_file):
     today = datetime.datetime.today()
     updated_records = []
 
-    # Read the existing records
     with open(user_file, 'r', newline='') as f:
         reader = csv.DictReader(f)
         for record in reader:
             if not record.get('due_date'):
-                continue  # skip if no due_date
+                continue
 
             try:
                 due_date = datetime.datetime.strptime(record['due_date'], "%Y-%m-%d")
                 days_left = (due_date - today).days
             except ValueError:
-                continue  # skip invalid dates
+                continue
 
-            # Assign new priority based on remaining days
-            if days_left <= 1:
+            # ✅ NEW: Handle overdue tasks
+            if days_left < 0 and record['status'].lower() != 'completed':
+                record['priority'] = 'Overdue'
+            elif days_left <= 1:
                 record['priority'] = 'Urgent'
             elif days_left <= 2:
                 record['priority'] = 'High'
@@ -31,7 +32,6 @@ def compare_due_date(user_file):
 
             updated_records.append(record)
 
-    # Write the updated records back to the same file
     with open(user_file, 'w', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=["task_id", "task", "status", "priority", "due_date"])
         writer.writeheader()

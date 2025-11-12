@@ -94,26 +94,22 @@
     <main class="main-todo">
         <h1>📋 Your To-Do List</h1>
 
-        <form method="POST" action="/todo.html" class="todo-form">
-            <input type="text" name="task_id" placeholder="Task ID" required>
-            <input type="text" name="task" placeholder="Task description" required>
-
-            <select name="status" required>
+        <div class="todo-form">
+            <input type="text" id="task" placeholder="Task description" required>
+            <select id="status" required>
                 <option value="Pending">Pending</option>
                 <option value="In Progress">In Progress</option>
                 <option value="Completed">Completed</option>
             </select>
-
-            <select name="priority" required>
+            <select id="priority" required>
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>
                 <option value="High">High</option>
                 <option value="Urgent">Urgent</option>
             </select>
-
-            <input type="date" name="due_date" required>
-            <button type="submit">Add Task</button>
-        </form>
+            <input type="date" id="due_date" required>
+            <button id="addTaskBtn" type="button">Add Task</button>
+        </div>
 
         <button id="reviewPriorityBtn" class="review-btn">🔄 Review My Priority</button>
 
@@ -125,6 +121,7 @@
                     <th>Status</th>
                     <th>Priority</th>
                     <th>Due Date</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -135,6 +132,7 @@
                     <td>{{ t.status }}</td>
                     <td>{{ t.priority }}</td>
                     <td>{{ t.due_date }}</td>
+                    <td><button class="deleteBtn" onclick="deleteTask('{{ t.task_id }}')">❌</button></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -142,31 +140,41 @@
     </main>
 
     <script>
-    async function loadTasks() {
-        const res = await fetch("/reviewmypriority", { method: "POST" });
-        if (!res.ok) {
-            alert("❌ Server error while reviewing priority");
-            return;
-        }
-        const data = await res.json();
-        const tbody = document.querySelector("#taskTable tbody");
-        tbody.innerHTML = "";
-        data.forEach(task => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td>${task.task_id}</td>
-                <td>${task.task}</td>
-                <td>${task.status}</td>
-                <td>${task.priority}</td>
-                <td>${task.due_date}</td>
-            `;
-            tbody.appendChild(row);
+        document.getElementById("addTaskBtn").addEventListener("click", async () => {
+            const task = document.getElementById("task").value.trim();
+            const status = document.getElementById("status").value;
+            const priority = document.getElementById("priority").value;
+            const due_date = document.getElementById("due_date").value;
+
+            if (!task || !due_date) {
+                alert("Please enter both task and due date!");
+                return;
+            }
+
+            const response = await fetch("/add_task", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ task, status, priority, due_date }),
+            });
+
+            const data = await response.json();
+            alert(data.message);
+            setTimeout(() => window.location.reload(), 700);
         });
-        alert("✅ Priorities reviewed and updated!");
-    }
 
-    document.getElementById("reviewPriorityBtn").addEventListener("click", loadTasks);
-</script>
+        async function deleteTask(task_id) {
+            const response = await fetch(`/delete_task/${task_id}`, { method: "POST" });
+            const data = await response.json();
+            alert(data.message);
+            window.location.reload();
+        }
 
+        document.getElementById("reviewPriorityBtn").addEventListener("click", async () => {
+    const response = await fetch("/reviewmypriority", { method: "POST" });
+    const data = await response.json();
+    alert(data.message);
+    if (response.ok) window.location.reload();
+});
+    </script>
 </body>
 </html>

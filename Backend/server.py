@@ -2,29 +2,26 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 from werkzeug.security import generate_password_hash, check_password_hash
 import csv
 import os
-import datetime
 import secrets
+from csv_file_writer import add_data, read_data, update_data, delete_data
 
 app = Flask(__name__)
-app.secret_key = secrets.token_hex(16)  # new random secret key per run
+app.secret_key = secrets.token_hex(16)
 
 USER_FILE = "users.csv"
-TODO_FOLDER = "user_todos"  # all user CSVs stored here
+TODO_FOLDER = "user_todos"
 
-# ---------------------------------------------------
-# Utility functions for user management
-# ---------------------------------------------------
+
+# ------------------ USER HELPERS ------------------
 
 def create_user_file():
-    """Create the user CSV if it doesn't exist."""
     if not os.path.exists(USER_FILE):
         with open(USER_FILE, "w", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow(["username", "password"])  # header
+            writer.writerow(["username", "password"])
 
 
 def add_user(username, password):
-    """Add a new user with a hashed password."""
     hashed_pw = generate_password_hash(password)
     with open(USER_FILE, "a", newline="") as f:
         writer = csv.writer(f)
@@ -32,7 +29,6 @@ def add_user(username, password):
 
 
 def verify_user(username, password):
-    """Check if user exists and password is correct."""
     with open(USER_FILE, "r") as f:
         reader = csv.DictReader(f)
         for row in reader:
@@ -42,7 +38,6 @@ def verify_user(username, password):
 
 
 def user_exists(username):
-    """Check if a username already exists."""
     with open(USER_FILE, "r") as f:
         reader = csv.DictReader(f)
         for row in reader:
@@ -51,48 +46,19 @@ def user_exists(username):
     return False
 
 
-# ---------------------------------------------------
-# Utility functions for To-Do management
-# ---------------------------------------------------
+# ------------------ TO-DO HELPERS ------------------
 
-def get_user_todo_file(username):
-    """Return the CSV path for the user's To-Do list."""
+def ensure_todo_folder():
     if not os.path.exists(TODO_FOLDER):
         os.makedirs(TODO_FOLDER)
+
+
+def get_user_todo_file(username):
+    ensure_todo_folder()
     return os.path.join(TODO_FOLDER, f"todo_task_data_{username}.csv")
 
 
-def create_user_todo_file(username):
-    """Create a To-Do file for the user if not present."""
-    file_path = get_user_todo_file(username)
-    if not os.path.exists(file_path):
-        with open(file_path, "w", newline="") as f:
-            writer = csv.writer(f)
-            writer.writerow(["task_id", "task", "status", "priority", "due_date"])
-
-
-def add_todo_record(username, record):
-    """Append a new To-Do record for the user."""
-    file_path = get_user_todo_file(username)
-    with open(file_path, "a", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=["task_id", "task", "status", "priority", "due_date"])
-        writer.writerow(record)
-
-
-def read_todo_data(username):
-    """Read all To-Do tasks for the given user."""
-    file_path = get_user_todo_file(username)
-    if not os.path.exists(file_path):
-        create_user_todo_file(username)
-        return []
-    with open(file_path, "r", newline="") as f:
-        reader = csv.DictReader(f)
-        return list(reader)
-
-
-# ---------------------------------------------------
-# Routes
-# ---------------------------------------------------
+# ------------------ ROUTES ------------------
 
 @app.route("/")
 def home():
@@ -117,7 +83,7 @@ def signup():
             return redirect(url_for("signup"))
 
         add_user(username, password)
-        create_user_todo_file(username)  # each new user gets an empty To-Do file
+        open(get_user_todo_file(username), "a").close()
         flash("Signup successful! Please log in.", "success")
         return redirect(url_for("login"))
 
@@ -156,52 +122,96 @@ def calendar():
     return render_template("calendar.html")
 
 
-@app.route("/todo.html", methods=["GET", "POST"])
+# ------------------ TO-DO PAGE ------------------
+
+@app.route("/todo.html")
 def todo():
     if "username" not in session:
         return redirect(url_for("login"))
 
     username = session["username"]
-    create_user_todo_file(username)
+    tasks = read_data(username)
+    return render_template("todo.html", tasks=tasks, username=username)
 
-    if request.method == "POST":
-        task_id = request.form.get("task_id")
-        task = request.form.get("task")
-        status = request.form.get("status")
-        priority = request.form.get("priority")
-        due_date = request.form.get("due_date")
 
-        if task_id and task:
-            record = {
-                "task_id": task_id,
-                "task": task,
-                "status": status,
-                "priority": priority,
-                "due_date": due_date,
-            }
-            add_todo_record(username, record)
+@app.route("/add_task", methods=["POST"])
+def add_task():
+    if "username" not in session:
+        return jsonify({"error": "Not logged in"}), 403
 
-        return redirect(url_for("todo"))
+    username = session["username"]
+    data = request.get_json()
 
-    tasks = read_todo_data(username)
-    return render_template("todo.html", tasks=tasks)
+    records = read_data(username)
+    task_id = len(records) + 1
+
+    record = {
+        "task_id": str(task_id),
+        "task": data.get("task", ""),
+        "status": data.get("status", "Pending"),
+        "priority": data.get("priority", "Low"),
+        "due_date": data.get("due_date", "")
+    }
+
+    add_data(record, username)
+    return jsonify({"message": "✅ Task added successfully!"})
+
+
+@app.route("/delete_task/<task_id>", methods=["POST"])
+def delete_task(task_id):
+    if "username" not in session:
+        return jsonify({"error": "Not logged in"}), 403
+
+    username = session["username"]
+    delete_data(task_id, username)
+    return jsonify({"message": "Task deleted"})
 
 
 @app.route("/reviewmypriority", methods=["POST"])
 def review_my_priority():
+    import csv
+
     if "username" not in session:
-        return redirect(url_for("login"))
+        return jsonify({"message": "❌ User not logged in."}), 403
 
     username = session["username"]
-    user_file = get_user_todo_file(username)
+    filename = os.path.join("user_todos", f"todo_task_data_{username}.csv")
 
-    # Call updated comparison logic
-    from due_date_comparison import compare_due_date
-    updated_records = compare_due_date(user_file)
+    if not os.path.exists(filename):
+        return jsonify({"message": "❌ No tasks found for this user."}), 404
 
-    # Return updated data to frontend
-    return jsonify(updated_records)
+    try:
+        # Read all tasks
+        with open(filename, "r", newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            tasks = list(reader)
 
+        if not tasks:
+            return jsonify({"message": "❌ No tasks to review."}), 404
+
+        # Priority order
+        priority_order = {"Urgent": 1, "High": 2, "Medium": 3, "Low": 4}
+
+        # Sort tasks by priority
+        tasks.sort(key=lambda x: priority_order.get(x.get("priority", "Low"), 5))
+
+        # Rewrite file with updated order and new IDs
+        with open(filename, "w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=["task_id", "task", "status", "priority", "due_date"])
+            writer.writeheader()
+            for i, task in enumerate(tasks, start=1):
+                task["task_id"] = str(i)
+                writer.writerow(task)
+
+        return jsonify({"message": "✅ Tasks reordered by priority successfully!"}), 200
+
+    except Exception as e:
+        print("⚠️ Error while reviewing priority:", e)
+        return jsonify({"message": f"❌ Error: {e}"}), 500
+
+
+
+# ------------------ OTHER PAGES ------------------
 
 @app.route("/habit.html")
 def habit():
@@ -217,6 +227,9 @@ def pomodoro():
     return render_template("pomodoro.html")
 
 
+# ------------------ MAIN ------------------
+
 if __name__ == "__main__":
     create_user_file()
+    ensure_todo_folder()
     app.run(debug=True)

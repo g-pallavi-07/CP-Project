@@ -1,106 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oi&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
-    <title>Sign Up | Productivity App</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Manrope', sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Productivity App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+  <style>
+      body {
+          font-family: 'Manrope', sans-serif;
+          margin: 0;
+          background-color: #f9f9f5;
+      }
 
-        /* ✅ Full-width green topbar */
-        header {
-            width: 100%;
-            background-color: #ccdeae;
-            padding: 25px 0;
-            text-align: center;
-            color: #2e4223;
-            font-weight: 600;
-            font-size: 18px;
-            letter-spacing: 0.5px;
-        }
+      header {
+          background-color: #ccdeae;
+          padding: 20px;
+          text-align: center;
+          font-size: 1.4rem;
+          font-weight: 600;
+          color: #344824;
+      }
 
-        main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vh;
-            flex-direction: column;
-        }
+      main {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 80vh;
+          flex-direction: column;
+      }
 
-        .form-container {
-            background-color: #f9f9f9;
-            border: 2px solid #ccdeae;
-            border-radius: 15px;
-            padding: 40px 60px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+      .form-container {
+          background-color: #ffffff;
+          border: 2px solid #ccdeae;
+          border-radius: 15px;
+          padding: 40px 60px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          text-align: center;
+      }
 
-        input {
-            width: 250px;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
+      input {
+          width: 250px;
+          padding: 10px;
+          margin: 10px 0;
+          border-radius: 8px;
+          border: 1px solid #ccc;
+          font-size: 16px;
+      }
 
-        button {
-            background-color: #ccdeae;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+      button {
+          background-color: #ccdeae;
+          border: none;
+          padding: 10px 25px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-weight: bold;
+          transition: 0.3s;
+      }
 
-        button:hover {
-            background-color: #b4cb95;
-        }
+      button:hover {
+          background-color: #b4cb95;
+      }
 
-        a {
-            color: #6b8e23;
-            text-decoration: none;
-        }
+      a {
+          color: #6b8e23;
+          text-decoration: none;
+      }
 
-        a:hover {
-            text-decoration: underline;
-        }
+      a:hover {
+          text-decoration: underline;
+      }
 
-        .message {
-            margin-top: 15px;
-            color: #555;
-        }
-    </style>
+      .message {
+          margin-top: 15px;
+          color: #555;
+      }
+
+      .flash {
+          padding: 10px;
+          margin-bottom: 15px;
+          border-radius: 5px;
+          font-weight: 600;
+          width: 300px;
+          text-align: center;
+      }
+      .flash.success { background-color: #ccdeae; color: #2e4223; }
+      .flash.warning, .flash.danger { background-color: #f8d7da; color: #721c24; }
+  </style>
 </head>
 <body>
-    <header>
-        ✨ “Start where you are. Use what you have. Do what you can.” ✨
-    </header>
+  <header>✨ “Start where you are. Use what you have. Do what you can.” ✨</header>
 
-    <main>
-        <div class="form-container">
-            <h2>Sign Up</h2>
-            <form method="POST">
-                <input type="text" name="username" placeholder="Username" required><br>
-                <input type="password" name="password" placeholder="Password" required><br>
-                <input type="password" name="confirm_password" placeholder="Confirm Password" required><br>
-                <button type="submit">Create Account</button>
-            </form>
-            <div class="message">
-                <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
-            </div>
-        </div>
-    </main>
+  <main>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+          {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ message }}</div>
+          {% endfor %}
+      {% endif %}
+      {% endwith %}
+
+      <div class="form-container">
+          <h2>Sign Up</h2>
+          <form method="POST">
+              <input type="text" name="username" placeholder="Username" required><br>
+              <input type="password" name="password" placeholder="Password" required><br>
+              <input type="password" name="confirm_password" placeholder="Confirm Password" required><br>
+              <button type="submit">Create Account</button>
+          </form>
+          <div class="message">
+              <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+          </div>
+      </div>
+  </main>
 </body>
 </html>

@@ -1,2 +1,3 @@
 username,password
 kavita,pbkdf2:sha256:260000$5SLEQHVDpkhDHFeP$45a15ea84bfb195c1b0c460a6b2529dc0e6872a99b330d55f894a74b05cff498
+avni,pbkdf2:sha256:260000$NheT8bxHeLZwbumm$bdd625f7ba626ce8ab6d4b26cfcac487c7ab7ab5f548f4b42b0ceafeef816120
