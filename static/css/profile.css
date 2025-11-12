@@ -1,0 +1,301 @@
+/* Profile Page Styles */
+
+main {
+    margin-left: 250px;
+    margin-top: 80px;
+    padding: 40px;
+}
+
+.home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #344e41;
+    font-family: 'Sour Gummy', sans-serif;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #344e41;
+    font-family: 'Sour Gummy', sans-serif;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.profile-section, .notes-section {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notes-section {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Profile Photo - Compact */
+.profile-photo-container {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ccdeae;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile-photo svg {
+    width: 70px;
+    height: 70px;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-upload-btn {
+    background-color: #588157;
+    color: #ccdeae;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 0.9em;
+    transition: 0.3s;
+}
+
+.photo-upload-btn:hover {
+    background-color: #3a5a40;
+}
+
+#photoInput {
+    display: none;
+}
+
+/* Compact Form */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    color: #344e41;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 0.95em;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid #a3b18a;
+    border-radius: 10px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.95em;
+    transition: 0.3s;
+    background-color: #f6ffe7;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #588157;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #588157;
+    font-size: 0.85em;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    z-index: 10;
+}
+
+.toggle-password:hover {
+    color: #3a5a40;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.save-btn,
+.cancel-btn {
+    flex: 1;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: 0.3s;
+}
+
+.save-btn {
+    background-color: #3a5a40;
+    color: #a3b18a;
+}
+
+.save-btn:hover {
+    background-color: #2d4632;
+}
+
+.cancel-btn {
+    background-color: #a3b18a;
+    color: #344e41;
+}
+
+.cancel-btn:hover {
+    background-color: #8a9d7a;
+}
+
+/* Notes Section */
+#notesArea {
+    flex: 1;
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #a3b18a;
+    border-radius: 10px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1em;
+    resize: vertical;
+    min-height: 300px;
+    background-color: #f6ffe7;
+    transition: 0.3s;
+}
+
+#notesArea:focus {
+    outline: none;
+    border-color: #588157;
+}
+
+.notes-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.notes-btn {
+    flex: 1;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.save-notes-btn {
+    background-color: #3a5a40;
+    color: #a3b18a;
+}
+
+.save-notes-btn:hover {
+    background-color: #2d4632;
+}
+
+.clear-notes-btn {
+    background-color: #a3b18a;
+    color: #344e41;
+}
+
+.clear-notes-btn:hover {
+    background-color: #8a9d7a;
+}
+
+.notes-info {
+    font-size: 0.85em;
+    color: #588157;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Flash Messages */
+.flash-message {
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 0.95em;
+}
+
+.flash-message.success {
+    background-color: #588157;
+    color: white;
+}
+
+.flash-message.danger,
+.flash-message.error {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.flash-message.warning {
+    background-color: #f57c00;
+    color: white;
+}
+
+.flash-message.info {
+    background-color: #0288d1;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        margin-left: 0;
+        margin-top: 60px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .profile-section, .notes-section {
+        padding: 20px;
+    }
+}

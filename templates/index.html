@@ -6,104 +6,195 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oi&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/habit-tracker.css">
-    <link rel="stylesheet" href="/static/css/analytics.css">
     <link rel="stylesheet" href="/static/css/general.css">
     <link rel="stylesheet" href="/static/css/header.css">
     <link rel="stylesheet" href="/static/css/nav.css">
-    <link rel="stylesheet" href="/static/css/pomodoro.css">
-    <title>Student Productivity</title>
+    <link rel="stylesheet" href="/static/css/profile.css">
+    <title>Student Productivity - Profile</title>
 </head>
 <body>
     <header class="header">
         <div class="quote">
-            <p class="quote">✨“Believe you can and you're halfway there.”✨</p>
+            <p class="quote">✨"Believe you can and you're halfway there."✨</p>
         </div>
-        <div class = "user-profile">
-            <button>User Profile</button>
+        <div class="user-profile">
+            <button onclick="window.location.href='/'">User Profile</button>
         </div>
-        <div class = "logout"><button>Logout</button></div>
+        <div class="logout">
+            <button onclick="window.location.href='/logout'">Logout</button>
+        </div>
     </header>
+
     <nav class="sidebar">
-      <ul>
-        <li>
-          <div class="user-profile-sidebar">
-            <a href="/">
-              <div class="user-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="40px"
-                  viewBox="0 -960 960 960"
-                  width="40px"
-                  fill="#ccdeae"
-                >
-                  <path
-                    d="M226-262q59-39.67 121-60.83Q409-344 480-344t133.33 21.17q62.34 21.16 121.34 60.83 41-49.67 59.83-103.67T813.33-480q0-141-96.16-237.17Q621-813.33 480-813.33t-237.17 96.16Q146.67-621 146.67-480q0 60.33 19.16 114.33Q185-311.67 226-262Zm253.88-184.67q-58.21 0-98.05-39.95Q342-526.58 342-584.79t39.96-98.04q39.95-39.84 98.16-39.84 58.21 0 98.05 39.96Q618-642.75 618-584.54t-39.96 98.04q-39.95 39.83-98.16 39.83ZM479.73-80q-83.1 0-156.18-31.5-73.09-31.5-127.15-85.83-54.07-54.34-85.23-127.23Q80-397.45 80-480.33q0-82.88 31.5-155.78Q143-709 197.33-763q54.34-54 127.23-85.5T480.33-880q82.88 0 155.78 31.5Q709-817 763-763t85.5 127Q880-563 880-480.18q0 82.83-31.5 155.67Q817-251.67 763-197.33 709-143 635.91-111.5 562.83-80 479.73-80Z"
-                  />
-                </svg>
-              </div>
-              <div class="username-text">
-                <a href="/">Username</a>
-              </div>
-            </a>
-          </div>
-        </li>
+        <ul>
+            <li>
+                <div class="user-profile-sidebar">
+                    <a href="/">
+                        <div class="user-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#ccdeae">
+                                <path d="M226-262q59-39.67 121-60.83Q409-344 480-344t133.33 21.17q62.34 21.16 121.34 60.83 41-49.67 59.83-103.67T813.33-480q0-141-96.16-237.17Q621-813.33 480-813.33t-237.17 96.16Q146.67-621 146.67-480q0 60.33 19.16 114.33Q185-311.67 226-262Zm253.88-184.67q-58.21 0-98.05-39.95Q342-526.58 342-584.79t39.96-98.04q39.95-39.84 98.16-39.84 58.21 0 98.05 39.96Q618-642.75 618-584.54t-39.96 98.04q-39.95 39.83-98.16 39.83ZM479.73-80q-83.1 0-156.18-31.5-73.09-31.5-127.15-85.83-54.07-54.34-85.23-127.23Q80-397.45 80-480.33q0-82.88 31.5-155.78Q143-709 197.33-763q54.34-54 127.23-85.5T480.33-880q82.88 0 155.78 31.5Q709-817 763-763t85.5 127Q880-563 880-480.18q0 82.83-31.5 155.67Q817-251.67 763-197.33 709-143 635.91-111.5 562.83-80 479.73-80Z"/>
+                            </svg>
+                        </div>
+                        <div class="username-text">
+                            <a href="/">{{ username }}</a>
+                        </div>
+                    </a>
+                </div>
+            </li>
 
-        <li>
-          <div class="calendar">
-            <a href="/calendar">
-              <div class="calendar-icon">
-                <img src="/static/assets/calendar-icon.png" alt="calendar-icon" />
-              </div>
-              <div class="calendar-text">
-                <a href="/calendar">Calendar</a>
-              </div>
-            </a>
-          </div>
-        </li>
+            <li>
+                <div class="calendar">
+                    <a href="/calendar">
+                        <div class="calendar-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#ccdeae">
+                                <path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Z"/>
+                            </svg>
+                        </div>
+                        <div class="calendar-text">
+                            <a href="/calendar">Calendar</a>
+                        </div>
+                    </a>
+                </div>
+            </li>
 
-        <li>
-          <div class="todo">
-            <a href="/todo">
-              <div class="todo-icon">
-                <img src="/static/assets/todo-icon.png" alt="todo-icon" />
-              </div>
-              <div class="todo-text">
-                <a href="/todo">To-Do</a>
-              </div>
-            </a>
-          </div>
-        </li>
+            <li>
+                <div class="todo">
+                    <a href="/todo">
+                        <div class="todo-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#ccdeae">
+                                <path d="M240-600h480v-80H240v80Zm0 160h480v-80H240v80Zm0 160h480v-80H240v80ZM120-120v-720h720v720H120Z"/>
+                            </svg>
+                        </div>
+                        <div class="todo-text">
+                            <a href="/todo">To-Do</a>
+                        </div>
+                    </a>
+                </div>
+            </li>
 
-        <li>
-          <div class="habit">
-            <a href="/habit">
-              <div class="habit-icon">
-                <img src="/static/assets/checklist-icon.png" alt="checklist-icon" />
-              </div>
-              <div class="habit-text">
-                <a href="/habit">Habit Tracker</a>
-              </div>
-            </a>
-          </div>
-        </li>
+            <li>
+                <div class="habit">
+                    <a href="/habit">
+                        <div class="habit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#ccdeae">
+                                <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
+                            </svg>
+                        </div>
+                        <div class="habit-text">
+                            <a href="/habit">Habit Tracker</a>
+                        </div>
+                    </a>
+                </div>
+            </li>
 
-        <li>
-          <div class="pomodoro">
-            <a href="/pomodoro">
-              <div class="pomodoro-icon">
-                <img src="/static/assets/timer-icon.png" alt="timer-icon" />
-              </div>
-              <div class="pomodoro-text">
-                <a href="/pomodoro">Pomodoro</a>
-              </div>
-            </a>
-          </div>
-        </li>
-      </ul>
+            <li>
+                <div class="pomodoro">
+                    <a href="/pomodoro">
+                        <div class="pomodoro-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#ccdeae">
+                                <path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/>
+                            </svg>
+                        </div>
+                        <div class="pomodoro-text">
+                            <a href="/pomodoro">Pomodoro</a>
+                        </div>
+                    </a>
+                </div>
+            </li>
+        </ul>
     </nav>
+
     <main>
-        <h1>Welcome to the Home Page</h1>
+        <div class="home-container">
+            <h1>Profile Settings</h1>
+            
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <div class="content-grid">
+                <!-- Profile Section -->
+                <div class="profile-section">
+                    <h2>User Information</h2>
+                    <div class="profile-photo-container">
+                        <div class="profile-photo" id="profilePhoto">
+                            {% if profile_photo %}
+                                <img src="{{ profile_photo }}" alt="Profile Photo">
+                            {% else %}
+                                <svg xmlns="http://www.w3.org/2000/svg" height="70px" viewBox="0 -960 960 960" width="70px" fill="#588157">
+                                    <path d="M226-262q59-39.67 121-60.83Q409-344 480-344t133.33 21.17q62.34 21.16 121.34 60.83 41-49.67 59.83-103.67T813.33-480q0-141-96.16-237.17Q621-813.33 480-813.33t-237.17 96.16Q146.67-621 146.67-480q0 60.33 19.16 114.33Q185-311.67 226-262Zm253.88-184.67q-58.21 0-98.05-39.95Q342-526.58 342-584.79t39.96-98.04q39.95-39.84 98.16-39.84 58.21 0 98.05 39.96Q618-642.75 618-584.54t-39.96 98.04q-39.95 39.83-98.16 39.83ZM479.73-80q-83.1 0-156.18-31.5-73.09-31.5-127.15-85.83-54.07-54.34-85.23-127.23Q80-397.45 80-480.33q0-82.88 31.5-155.78Q143-709 197.33-763q54.34-54 127.23-85.5T480.33-880q82.88 0 155.78 31.5Q709-817 763-763t85.5 127Q880-563 880-480.18q0 82.83-31.5 155.67Q817-251.67 763-197.33 709-143 635.91-111.5 562.83-80 479.73-80Z"/>
+                                </svg>
+                            {% endif %}
+                        </div>
+                        <div>
+                            <input type="file" id="photoInput" accept="image/*">
+                            <button class="photo-upload-btn" onclick="document.getElementById('photoInput').click()">
+                                Change Photo
+                            </button>
+                        </div>
+                    </div>
+
+                    <form id="profileForm" method="POST" action="/update_profile">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" placeholder="Enter your username" value="{{ username }}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="currentPassword" name="current_password" placeholder="Enter current password">
+                                <button type="button" class="toggle-password" onclick="togglePassword('currentPassword')">Show</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="newPassword" name="new_password" placeholder="Enter new password">
+                                <button type="button" class="toggle-password" onclick="togglePassword('newPassword')">Show</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm New Password</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm new password">
+                                <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')">Show</button>
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="profilePhotoData" name="profile_photo">
+
+                        <div class="button-group">
+                            <button type="submit" class="save-btn">Save Changes</button>
+                            <button type="button" class="cancel-btn" onclick="resetForm()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Notes Section -->
+                <div class="notes-section">
+                    <h2>Quick Notes</h2>
+                    <textarea id="notesArea" placeholder="Write your quick notes here...&#10;&#10;• To-do items&#10;• Reminders&#10;• Ideas&#10;• Anything you want to remember!"></textarea>
+                    <div class="notes-actions">
+                        <button class="notes-btn save-notes-btn" onclick="saveNotes()">Save Notes</button>
+                        <button class="notes-btn clear-notes-btn" onclick="clearNotes()">Clear</button>
+                    </div>
+                    <div class="notes-info">
+                        Last saved: <span id="lastSaved">Never</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+
+    <script src="/static/js/profile.js"></script>
 </body>
 </html>

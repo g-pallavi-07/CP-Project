@@ -1,7 +1,108 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-body{
+
+body {
     background-color: #f6ffe7;
+    font-family: 'Manrope', sans-serif;
+}
+
+/* Container */
+.main-todo {
+    margin-left: 240px;
+    padding: 80px 60px;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+/* Title */
+.main-todo h1 {
+    font-weight: 700;
+    font-size: 30px;
+    color: #606c38;
+    margin-bottom: 25px;
+}
+
+/* Task form */
+.todo-form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 30px;
+}
+
+.todo-form input,
+.todo-form select {
+    padding: 12px 14px;
+    border: 1px solid #ccd0c7;
+    border-radius: 8px;
+    font-size: 15px;
+    flex: 1 1 200px;
+    background-color: #fefefe;
+}
+
+.todo-form input:focus,
+.todo-form select:focus {
+    outline: none;
+    border-color: #a5b68d;
+    box-shadow: 0 0 3px #a5b68d;
+}
+
+/* Buttons */
+.todo-form button,
+.review-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.todo-form button {
+    background-color: #a5b68d;
+    color: white;
+}
+
+.todo-form button:hover {
+    background-color: #8ca174;
+}
+
+.review-btn {
+    background-color: #d2e0a3;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.review-btn:hover {
+    background-color: #b4cb87;
+}
+
+/* Table */
+#taskTable {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    font-size: 15px;
+}
+
+#taskTable th, #taskTable td {
+    border-bottom: 1px solid #eaeaea;
+    padding: 14px 16px;
+    text-align: left;
+}
+
+#taskTable th {
+    background-color: #f6f8f2;
+    color: #606c38;
+    font-weight: 700;
+}
+
+#taskTable tr:hover {
+    background-color: #f9faf6;
 }
