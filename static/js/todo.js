@@ -28,5 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     popup.classList.add('hidden');
   });
 
-  // Save new todo
-  saveTodoBtn.addEventListener
+// save new todo
+  saveTodoBtn.addEventListener('click', () => {
+    popup.classList.add('hidden');
+  });
+})

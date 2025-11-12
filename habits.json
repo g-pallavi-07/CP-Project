@@ -1,14 +1,1 @@
-[
-    {
-        "name": "sleeping",
-        "checkedDays": [
-            false,
-            false,
-            false,
-            false,
-            true,
-            true,
-            true
-        ]
-    }
-]
+[]
